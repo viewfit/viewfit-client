@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import z from "zod";
 import { type QueryClient } from "@tanstack/react-query";
-import { Header } from "@/components/ui/header";
+import { Header } from "@/components/header";
 
 type RootRouteContext = {
   queryClient: QueryClient;
@@ -20,7 +20,9 @@ function RouteComponent() {
   return (
     <>
       <div className="flex flex-col min-h-lvh gap-2">
-        <Header />
+        <div className="border-b-1 shadow-xs h-fit">
+          <Header />
+        </div>
         <Outlet />
       </div>
       <TanStackRouterDevtools />

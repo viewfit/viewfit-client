@@ -6,12 +6,12 @@ export const Logo: FC = () => {
     <Link to="/">
       <div className="flex flex-col items-center">
         <div>
-          <span className="text-3xl italic font-black text-primary">
+          <span className="text-2xl italic font-black text-primary">
             View Fit
           </span>
         </div>
         <div>
-          <span className="text-primary font-medium">
+          <span className="text-primary font-medium font-lg">
             Beauty and fashion, perfectly mached
           </span>
         </div>
