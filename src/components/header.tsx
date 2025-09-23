@@ -7,18 +7,18 @@ import { Categories } from "./categories";
 
 export const Header: FC = () => {
   return (
-    <header className="sticky mx-auto flex flex-col w-full min-h-fit max-w-7xl h-25 justify-between gap-2 pb-3">
+    <header className="sticky mx-auto flex flex-col w-full min-h-fit max-w-4/5 h-25 justify-between gap-2 pb-3">
       <div className="flex justify-end mt-1">
         <ModeToggle />
       </div>
-      <div className="flex justify-between items-center mb-3">
-        <div className="max-w-lg">
+      <div className="flex items-center mb-3 w-full">
+        <div className="flex-shrink-0">
           <Logo />
         </div>
-        <div className="w-full max-w-2xl h-fit">
+        <div className="flex-1 px-6 justify-center">
           <SearchBox />
         </div>
-        <div>
+        <div className="flex-shrink-0">
           <UtilityMenu />
         </div>
       </div>

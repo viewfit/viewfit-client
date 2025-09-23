@@ -20,7 +20,7 @@ function RouteComponent() {
   return (
     <>
       <div className="flex flex-col min-h-lvh gap-2">
-        <div className="border-b-1 shadow-xs h-fit">
+        <div className="border-b-1 min-w-4/5 shadow-xs h-fit">
           <Header />
         </div>
         <Outlet />
