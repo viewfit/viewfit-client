@@ -16,7 +16,7 @@ export const ModeToggle: FC = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          {theme === "light" && <SunIcon />}
+          {theme === "light" && <SunIcon /> }
           {theme === "dark" && <MoonIcon />}
           {theme === "system" && <MonitorIcon />}
         </Button>

@@ -11,11 +11,11 @@ export const Header: FC = () => {
       <div className="flex justify-end mt-1">
         <ModeToggle />
       </div>
-      <div className="flex items-center mb-3 w-full">
+      <div className="flex justify-between items-center mb-5 w-full">
         <div className="flex-shrink-0">
           <Logo />
         </div>
-        <div className="flex-1 px-6 justify-center">
+        <div className="flex-1 px-6 w-full max-w-5xl justify-center">
           <SearchBox />
         </div>
         <div className="flex-shrink-0">
