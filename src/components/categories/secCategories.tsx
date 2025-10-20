@@ -1,16 +1,15 @@
 import { useCategories } from "@/hooks/use-categories-query";
+import React, { useEffect, useState } from "react";
 
 type parentComponent = {
   parentId: number | null;
 };
 
-export const SecCategories = ({ parentId }: parentComponent) => {
+export const SecCategories = React.memo(({ parentId }: parentComponent) => {
   const { data } = useCategories(parentId);
 
-  console.log(parentId);
-
   return (
-    <div className="absolute bg-secondary hidden group-hover:block opacity-100 min-w-2xl h-fit pt-1 pb-1">
+    <div className="absolute bg-secondary hidden group-hover:block opacity-100 min-w-full pt-1 pb-1">
       {data?.map((item, index) => (
         <div key={index} className="flex flex-col w-full h-full">
           <div className="second-group flex relative">
@@ -25,4 +24,4 @@ export const SecCategories = ({ parentId }: parentComponent) => {
       ))}
     </div>
   );
-};
+});

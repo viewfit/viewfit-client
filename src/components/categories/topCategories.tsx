@@ -1,79 +1,51 @@
 import { MenuIcon } from "lucide-react";
-import { useState, type FC } from "react";
+import { Suspense, useState, type FC } from "react";
 import { SecCategories } from "./secCategories";
+import { cn } from "@/lib/utils";
+import { Spinner } from "../ui/spinner";
 
 export const Categories: FC = () => {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
   const [parentId, setParentId] = useState<number | null>(null);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const mainCategories = [
+    { id: null, label: "신상" },
+    { id: null, label: "인기" },
+    { id: 4, label: "뷰티" },
+    { id: 5, label: "의류" },
+    { id: 6, label: "세트" },
+    { id: 7, label: "럭셔리" },
+    { id: 8, label: "이벤트" },
+    { id: 9, label: "문의" },
+  ];
 
   return (
     <div
-      onMouseEnter={() => {
-        console.log(parentId);
-        setIsHovered(true);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-      }}
-      className="flex flex-col group"
+      className="flex flex-col group relative border-b-1 shadow-xs h-fit pb-2"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className=" flex justify-between">
+      <div className="flex justify-between">
         <div className="flex gap-15">
-          <div>
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              신상
-            </button>
-          </div>
-          <div>
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              인기
-            </button>
-          </div>
-          <div
-            onMouseEnter={() => {
-              setParentId(4);
-            }}
-            onMouseLeave={() => {
-              setParentId(null);
-            }}
-          >
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              뷰티
-            </button>
-          </div>
-          <div
-            onMouseEnter={() => {
-              setParentId(5);
-            }}
-            onMouseLeave={() => {
-              setParentId(null);
-            }}
-          >
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              의류
-            </button>
-          </div>
-          <div>
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              세트
-            </button>
-          </div>
-          <div>
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              럭셔리
-            </button>
-          </div>
-          <div>
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              이벤트
-            </button>
-          </div>
-          <div>
-            <button className="text-lg font-bold font-sans hover:text-primary">
-              문의
-            </button>
-          </div>
+          {mainCategories.map(({ id, label }) => (
+            <div
+              key={label}
+              onMouseEnter={() => {
+                setParentId(id);
+                setIsHovered(true);
+              }}
+              className={cn(
+                "pl-1 pr-1",
+                parentId === id && isHovered ? "border-b-2 border-primary" : ""
+              )}
+            >
+              <button className="text-lg font-bold font-sans hover:text-primary">
+                {label}
+              </button>
+            </div>
+          ))}
         </div>
+
         <div className="p-0">
           <button className="flex gap-3 items-center hover:text-primary">
             <MenuIcon strokeWidth={2} className="p-0" />
@@ -81,12 +53,27 @@ export const Categories: FC = () => {
           </button>
         </div>
       </div>
+
       <div
-        className={`transition-opacity duration-300 ${
-          isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={cn(
+          "absolute w-full transition-opacity duration-300 top-9",
+          isHovered && parentId !== null
+            ? "opacity-100"
+            : "opacity-0 pointer-events-auto"
+        )}
       >
-        <SecCategories parentId={parentId} />
+        <Suspense
+          fallback={
+            <div className="absolute bg-secondary hidden group-hover:block opacity-100 min-w-full pt-1 pb-1">
+              <div className="flex flex-col justify-center items-center gap-3">
+                <Spinner className="size-10 text-primary" />
+                <span className="text-primary text-2xl">Loading...</span>
+              </div>
+            </div>
+          }
+        >
+          <SecCategories parentId={parentId} />
+        </Suspense>
       </div>
     </div>
   );
