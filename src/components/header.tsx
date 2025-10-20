@@ -3,7 +3,7 @@ import { Logo } from "./logo";
 import { ModeToggle } from "./theme-togle";
 import { SearchBox } from "./search-box";
 import { UtilityMenu } from "./utility-menu";
-import { Categories } from "./categories";
+import { Categories } from "./categories/topCategories";
 
 export const Header: FC = () => {
   return (
@@ -22,9 +22,7 @@ export const Header: FC = () => {
           <UtilityMenu />
         </div>
       </div>
-      <div>
-        <Categories />
-      </div>
+      <Categories />
     </header>
   );
 };
