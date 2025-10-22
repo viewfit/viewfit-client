@@ -9,8 +9,8 @@ export const Categories: FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const mainCategories = [
-    { id: null, label: "신상" },
-    { id: null, label: "인기" },
+    { id: 1, label: "신상" },
+    { id: 2, label: "인기" },
     { id: 4, label: "뷰티" },
     { id: 5, label: "의류" },
     { id: 6, label: "세트" },
@@ -21,7 +21,7 @@ export const Categories: FC = () => {
 
   return (
     <div
-      className="flex flex-col group relative border-b-1 shadow-xs h-fit pb-2"
+      className="flex flex-col group relative border-b-1 shadow-xs max-h-full pb-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -57,7 +57,7 @@ export const Categories: FC = () => {
       <div
         className={cn(
           "absolute w-full transition-opacity duration-300 top-9",
-          isHovered && parentId !== null
+          parentId !== null && isHovered && parentId >= 3
             ? "opacity-100"
             : "opacity-0 pointer-events-auto"
         )}

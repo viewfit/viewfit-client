@@ -13,11 +13,14 @@ export const SecCategories = React.memo(({ parentId }: parentComponent) => {
       {data?.map((item, index) => (
         <div key={index} className="flex flex-col w-full h-full">
           <div className="second-group flex relative">
-            <button className="border-1 p-3 rounded_2xl basis-1/3 hover:bg-primary hover:duration-75">
-              {item.name}
-            </button>
-            <div className="absolute hidden second-group-hover:block opacity-100 basis-2/3">
+            <div className="border-1 p-3 rounded_2xl basis-1/5 hover:bg-primary hover:duration-75 font-sans font-bold">
+              <button className="align-center">{item.name}</button>
+            </div>
+            <div className=" second-group-hover:block opacity-100 basis-2/5">
               <span>3rd Menu</span>
+            </div>
+            <div className="basis-2/5">
+              <span>Image</span>
             </div>
           </div>
         </div>
