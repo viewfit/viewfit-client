@@ -1,6 +1,6 @@
 import { MenuIcon } from "lucide-react";
 import { Suspense, useState, type FC } from "react";
-import { SecCategories } from "./secCategories";
+import { SubCategories } from "./sub-categories";
 import { cn } from "@/lib/utils";
 import { Spinner } from "../ui/spinner";
 
@@ -21,11 +21,11 @@ export const Categories: FC = () => {
 
   return (
     <div
-      className="flex flex-col group relative border-b-1 shadow-xs max-h-full pb-2"
+      className="flex flex-col group relative w-full shadow-xs pb-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex justify-between">
+      <div className="flex justify-between pr-5 pl-5">
         <div className="flex gap-15">
           {mainCategories.map(({ id, label }) => (
             <div
@@ -36,7 +36,7 @@ export const Categories: FC = () => {
               }}
               className={cn(
                 "pl-1 pr-1",
-                parentId === id && isHovered ? "border-b-2 border-primary" : ""
+                parentId === id && isHovered ? "font-extrabold" : ""
               )}
             >
               <button className="text-lg font-bold font-sans hover:text-primary">
@@ -46,7 +46,7 @@ export const Categories: FC = () => {
           ))}
         </div>
 
-        <div className="p-0">
+        <div>
           <button className="flex gap-3 items-center hover:text-primary">
             <MenuIcon strokeWidth={2} className="p-0" />
             <span className="text-lg font-bold font-sans">전체메뉴</span>
@@ -72,7 +72,7 @@ export const Categories: FC = () => {
             </div>
           }
         >
-          <SecCategories parentId={parentId} />
+          <SubCategories parentId={parentId} />
         </Suspense>
       </div>
     </div>

@@ -19,10 +19,8 @@ export const Route = createRootRouteWithContext<RootRouteContext>()({
 function RouteComponent() {
   return (
     <>
-      <div className="flex flex-col min-h-lvh gap-2">
-        <div>
-          <Header />
-        </div>
+      <div className="flex flex-col w-full min-h-lvh gap-2">
+        <Header />
         <Outlet />
       </div>
       <TanStackRouterDevtools />

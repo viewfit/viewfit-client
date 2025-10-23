@@ -4,7 +4,7 @@ import { Search } from "lucide-react";
 
 export const SearchBox: FC = () => {
   return (
-    <div className="relative w-full px-15">
+    <div className="relative w-full px-15 max-w-4xl">
       <Input
         className="w-full min-h-15 border-primary border-2 rounded-3xl pr-12 pl-8 font-semibold !text-base text-primary"
         placeholder="검색어를 입력하세요..."

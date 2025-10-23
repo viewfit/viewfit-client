@@ -16,9 +16,13 @@ export const categoriesQueryOption = (parentId: number | null) =>
         }
 
         return null;
-      }
+      } else {
+        const res = await fetcher.get(url);
 
-      return null;
+        if (res.ok) {
+          return categorySchema.parse(await res.json());
+        }
+      }
     },
   });
 
