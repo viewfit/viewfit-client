@@ -19,7 +19,7 @@ export const Route = createRootRouteWithContext<RootRouteContext>()({
 function RouteComponent() {
   return (
     <>
-      <div className="flex flex-col w-full min-h-lvh gap-2">
+      <div className="flex flex-col items-center w-full min-h-lvh gap-2">
         <Header />
         <Outlet />
       </div>

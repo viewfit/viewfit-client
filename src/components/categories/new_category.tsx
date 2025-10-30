@@ -1,10 +1,8 @@
-import { useCategories } from "@/hooks/use-categories-query";
 import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 import { MenuIcon } from "lucide-react";
 import { Suspense, useState, type FC } from "react";
 import { AllCategories } from "./all-categories";
-import type { boolean } from "zod";
 import { Spinner } from "../ui/spinner";
 
 export const MainCategories: FC = () => {
@@ -51,6 +49,9 @@ export const MainCategories: FC = () => {
             </li>
             <li className="hover:font-medium hover:text-primary">
               <Link to="/">이벤트</Link>
+            </li>
+            <li className="hover:font-medium hover:text-primary">
+              <Link to="/">문의</Link>
             </li>
           </ul>
         </nav>

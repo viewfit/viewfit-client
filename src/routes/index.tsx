@@ -16,10 +16,13 @@ function RouteComponent() {
   console.log(cosmetics);
 
   return (
-    <div>
-      {cosmetics?.map((item, index) => (
-        <p key={index}>{item.name}</p>
-      ))}
-    </div>
+    <main className="w-full flex flex-col items-center mb-10">
+      <div className="w-4/5 h-200">
+        <img
+          src="winter_ad_img.jpg"
+          className="w-full rounded-2xl h-full object-fill"
+        />
+      </div>
+    </main>
   );
 }
