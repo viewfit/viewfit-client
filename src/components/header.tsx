@@ -7,7 +7,7 @@ import { MainCategories } from "./categories/new_category";
 
 export const Header: FC = () => {
   return (
-    <header className="sticky flex flex-col items-center pt-3 border-b-2 w-full">
+    <header className="sticky flex flex-col items-center pt-3 border-b-2 w-full z-50">
       <div className="mx-auto flex flex-col w-full max-w-4/5 min-h-fit justify-between">
         <div className="flex justify-end">
           <ModeToggle />

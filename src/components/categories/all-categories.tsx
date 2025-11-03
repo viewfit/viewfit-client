@@ -22,8 +22,8 @@ export const AllCategories = ({ showAll }: parentProps) => {
   return (
     <div
       className={cn(
-        "absolute top-10 opacity-0 rounded-2xl w-full bg-gray-100 p-5",
-        showAll ? "opacity-100 block" : ""
+        "absolute top-10 hidden rounded-2xl w-full bg-gray-100 p-5",
+        showAll ? "block" : ""
       )}
     >
       <div className="flex justify-evenly">
