@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-routes": "tsr generate",
+    "watch-routes": "tsr watch"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -33,6 +34,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
+    "@tanstack/router": "0.0.1-beta.53",
+    "@tanstack/router-cli": "^1.136.11",
     "@tanstack/router-plugin": "^1.131.50",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",

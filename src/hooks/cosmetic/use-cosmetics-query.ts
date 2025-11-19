@@ -4,7 +4,7 @@ import { fetcher } from "../../lib/fetcher";
 
 export const cosmeticsQueryOptions = () =>
   queryOptions({
-    queryKey: ["cosmetics", "list"],
+    queryKey: ["cosmetics"],
     queryFn: async () => {
       const res = await fetcher.get("http://localhost:9080/");
 

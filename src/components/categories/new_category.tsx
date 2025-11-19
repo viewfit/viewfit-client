@@ -36,7 +36,7 @@ export const MainCategories: FC = () => {
               <Link to="/">인기</Link>
             </li>
             <li className="hover:font-medium hover:text-primary">
-              <Link to="/">뷰티</Link>
+              <Link to="/cosmetics">뷰티</Link>
             </li>
             <li className="hover:font-medium hover:text-primary">
               <Link to="/">의류</Link>
