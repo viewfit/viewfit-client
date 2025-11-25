@@ -1,18 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCosmetics } from "../hooks/cosmetic/use-cosmetics-query";
 import type { Cosmetics } from "../schema/cosmetic-schema";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 import { Card, CardContent } from "@/components/ui/card";
-import React from "react";
-import Autoplay from "embla-carousel-autoplay";
+
 import dummy from "../../public/dummy.json";
 import { StarIcon } from "lucide-react";
+import { MainAds } from "@/components/main-ads";
+import { IndexCategories } from "@/components/index-categories";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -22,49 +17,17 @@ export type CosmeticsProps = {
   cosmetics: Cosmetics;
 };
 
-const adImageItems = [
-  {
-    name: "banner_ad_1.jpg",
-  },
-  {
-    name: "banner_ad_2.jpg",
-  },
-];
-
 function RouteComponent() {
   const { data: cosmetics } = useCosmetics();
 
   console.log(cosmetics);
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
-  );
-
   return (
     <main className="w-full flex flex-col items-center">
-      <div className="w-4/5 h-30 flex flex-col gap-10">
-        <Carousel
-          plugins={[plugin.current]}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
-        >
-          <CarouselContent>
-            {adImageItems.map((item, index) => (
-              <CarouselItem key={index}>
-                <Card className="p-0">
-                  <CardContent className="w-full h-100 overflow-hidden rounded-2xl p-0">
-                    <img
-                      className="w-full h-full object-fill"
-                      src={item.name}
-                    ></img>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+      <div className="w-4/5 flex flex-col gap-10">
+        <MainAds />
+        <IndexCategories />
+
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <StarIcon size={24} color="#315578" strokeWidth={3} />
